@@ -3,7 +3,7 @@ import argparse
 def get_parser():
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('--batch-size', action='store', dest='batch_size',help='batch-size , default 128',type=int,default = 128)
+	parser.add_argument('--batch-size', action='store', dest='batch_size',help='batch-size , default 64',type=int,default = 64)
 
 	parser.add_argument('--epochs', action='store', dest='n_epochs',help='# of epochs, default = 500',type=int,default = 500)
 

@@ -89,10 +89,12 @@ for iteration in xrange(p.n_epochs):
 model.load_weights(PREFIX + FOOTPRINT + '.model')
 prediction = model.predict({'input' : X_test})
 outfile = open( PREFIX + FOOTPRINT + '.output','w')
-for i in xrange(len(prediction)):
+print("DEBUG:",prediction['output'].shape)
+for i in xrange(len(prediction['output'])):
 	p = ctable.decode(prediction['output'][i], calc_argmax=True)
 	outfile.write(p.encode("utf-8")+'\n')
 
+outfile.close()
 with open( PREFIX + FOOTPRINT + '.arch', 'w') as outfile:
     json.dump(model.to_json(), outfile)
 pickle.dump({'ctable' : ctable, 'train_history' : train_history},open(PREFIX + FOOTPRINT + '.meta', 'w'))
