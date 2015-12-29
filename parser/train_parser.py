@@ -12,7 +12,7 @@ import cPickle as pickle
 Dependency Parser with purely Neural Network-based models
 """
 
-ROOT = {'attention' : -1, 'enc2dec' : -1, 'pointer' : 0}
+ROOT = {'attention' : 0, 'enc2dec' : 0, 'pointer' : 0}
 parser = get_parser()
 p = parser.parse_args()
 TIMESTAMP = "_".join(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S').split())
@@ -37,7 +37,7 @@ X,Y = prepare_conll([TR,VAL,TEST], root = ROOT[p.model])
 N = X_train.shape[0]
 MAXLEN = X_train.shape[1]
 DIM = X_train.shape[2]
-ctable = CharacterTable(range(MAXLEN)+[-1],-1)
+ctable = CharacterTable(range(MAXLEN),-1)
 
 print('x,y shapes:',X_train.shape,Y_train.shape,"max seq length:",MAXLEN)
 print('building model...')

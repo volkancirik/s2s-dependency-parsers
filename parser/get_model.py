@@ -33,7 +33,7 @@ def get_enc2dec(RNN, HIDDEN_SIZE = 128, LAYERS = 1, DIM = 100, MAXLEN = 100):
 		model.add_node(RNN(HIDDEN_SIZE, return_sequences = True), name='d_r'+str(layer+1), input=prev_node)
 		prev_node = 'd_r'+str(layer+1)
 
-	model.add_node(TimeDistributedDense(MAXLEN + 1), name='d_tdd', input=prev_node)
+	model.add_node(TimeDistributedDense(MAXLEN), name='d_tdd', input=prev_node)
 	model.add_node(Activation('softmax'), name = 'softmax',input = 'd_tdd')
 	model.add_output(name='output', input='softmax')
 
@@ -61,7 +61,7 @@ def get_attention(RNN, HIDDEN_SIZE = 128, LAYERS = 1, DIM = 100, MAXLEN = 100):
 		model.add_node(RNN(HIDDEN_SIZE, return_sequences = True), name='d_r'+str(layer+1), input=prev_node)
 		prev_node = 'd_r'+str(layer+1)
 
-	model.add_node(TimeDistributedDense(MAXLEN + 1), name='d_tdd', input=prev_node)
+	model.add_node(TimeDistributedDense(MAXLEN), name='d_tdd', input=prev_node)
 	model.add_node(Activation('softmax'), name = 'softmax',input = 'd_tdd')
 	model.add_output(name='output', input='softmax')
 	return model
