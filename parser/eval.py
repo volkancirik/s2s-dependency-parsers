@@ -39,4 +39,4 @@ for r,p in zip(ref,pred):
 			if (int(p[i]) == r[i]) or (r[i] == 0 and int(p[i]) == -1):
 				accurate +=1
 	n += len(r)
-print("total {} arcs and {} of them are correct. ula {}".format(n,accurate,accurate * 1.0 / n))
+print("in {} total {} arcs and {} of them are correct. ula {}".format(sys.argv[2].split('/')[-1].split('.')[0],n,accurate,accurate * 1.0 / n))
