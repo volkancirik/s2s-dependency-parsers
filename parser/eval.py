@@ -5,14 +5,14 @@ import sys
 usage='''
 Evaluate output of Neural Parsers
 
-python eval.py <reference> <prediction> <model_type {0 : enc2dec,attention, 1 : pointer}>
+python eval.py <reference> <prediction> <output file>
 '''
 
 if len(sys.argv) != 4:
 	print(usage)
 	quit(0)
 
-model_type = int(sys.argv[3])
+model_type = 1
 ref = []
 s = []
 for line in open(sys.argv[1]):
@@ -39,4 +39,6 @@ for r,p in zip(ref,pred):
 			if (int(p[i]) == r[i]) or (r[i] == 0 and int(p[i]) == -1):
 				accurate +=1
 	n += len(r)
-print("{} in {} total {} arcs and {} of them are correct".format(accurate * 1.0 / n, sys.argv[2].split('/')[-1].split('.')[0],n,accurate))
+out = open(sys.argv[3],'w')
+out.write("{} in {} total {} arcs and {} of them are correct \n".format(accurate * 1.0 / n, sys.argv[2].split('/')[-1].split('.')[0],n,accurate))
+out.close()

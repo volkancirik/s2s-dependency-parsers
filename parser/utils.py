@@ -25,4 +25,6 @@ def get_parser():
 
 	parser.add_argument('--prefix', action='store', dest='prefix',help='exp log prefix to append exp/{} default = 0',default = '0')
 
+	parser.add_argument('--vector', action='store', dest='vector',help='vector pkl file')
+
 	return parser
