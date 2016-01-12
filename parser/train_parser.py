@@ -4,7 +4,7 @@ from keras.models import Graph
 from keras.optimizers import RMSprop
 import numpy as np
 from prepare_benchmark import CharacterTable
-from utils import get_parser1
+from utils import get_parser
 from get_model import grab_model
 import json, time, datetime, os
 import cPickle as pickle
@@ -15,7 +15,7 @@ from convert_benchmark import convertData
 Dependency Parser with purely Neural Network-based models
 """
 
-parser = get_parser1()
+parser = get_parser()
 p = parser.parse_args()
 TIMESTAMP = "_".join(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S').split())
 

@@ -14,6 +14,32 @@ import gzip
 
 UNK="*UNKNOWN*"
 
+class CharacterTable(object):
+	"""
+	Given a set of characters:
+	+ Encode them to a one hot integer representation
+	+ Decode the one hot integer representation to their character output
+	+ Decode a vector of probabilties to their character output
+	"""
+	def __init__(self, chars, maxlen):
+		self.chars = chars
+		self.char_indices = dict((c, i) for i, c in enumerate(self.chars))
+		self.indices_char = dict((i, c) for i, c in enumerate(self.chars))
+		self.maxlen = maxlen
+
+	def encode(self, C, maxlen=None):
+		maxlen = maxlen if maxlen else self.maxlen
+		X = np.zeros((maxlen, len(self.chars)))
+		for i, c in enumerate(C):
+			X[i, self.char_indices[c]] = 1
+		return X
+
+	def decode(self, X, calc_argmax=True):
+		if calc_argmax:
+			X = X.argmax(axis=-1)
+		return ' '.join(str(self.indices_char[x]) for x in X)
+
+
 def process_file(file_name, v_map, feature_map, feature_length, max_length, dim, label_idx, features):
 
 	print file_name

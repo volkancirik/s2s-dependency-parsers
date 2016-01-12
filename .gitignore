@@ -1,6 +1,5 @@
 parser/*.pyc
 parser/keras*
 parser/exp*
-data/*.train
-data/*.val
-data/*.test
+parser/TRASH
+embeddings/*.pkl
