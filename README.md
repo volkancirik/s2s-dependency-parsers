@@ -22,7 +22,7 @@ Please take a look at ``data/``. You will find samples of conll formatted files.
 
 #### 2 S2S Models and Keras
 
-I implemented attention and pointer models on top of old Keras backend (befor TensorFlow changes). You need to checkout [my keras fork](https://github.com/wolet/keras) and put keras folder under ``parser/``.
+I implemented attention and pointer models on top of old Keras backend (before TensorFlow changes). You need to checkout [my keras fork](https://github.com/wolet/keras) and put keras folder under ``parser/``.
 
 #### 3 Training a Model
 
