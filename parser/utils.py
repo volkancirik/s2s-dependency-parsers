@@ -13,7 +13,7 @@ def get_parser():
 
 	parser.add_argument('--unit', action='store', dest='unit',help='train with {lstm gru rnn} units,default = lstm', default = 'lstm')
 
-	parser.add_argument('--hidden', action='store', dest='n_hidden',help='hidden size of softmax layer, default = 256',type=int,default = 256)
+	parser.add_argument('--hidden', action='store', dest='n_hidden',help='hidden size of neural networks, default = 256',type=int,default = 256)
 
 	parser.add_argument('--layers', action='store', dest='n_layers',help='# of hidden layers, default = 1',type=int,default = 1)
 
