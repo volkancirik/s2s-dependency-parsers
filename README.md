@@ -43,7 +43,7 @@ Under ``parser/`` if you type following command you will see a bunch of argument
        --prefix PREFIX       exp log prefix to append exp/{} default = 0
        --vector VECTOR       vector pkl file
        
-Most of above are trivial. ``--model` is to choose among s2s models. `enc2dec` is very similar to [Cho et. al.](http://arxiv.org/pdf/1409.1259.pdf). `attention` is for [Bahdanau et. al.](http://arxiv.org/pdf/1409.0473.pdf), and `pointer` is for [Vinyals et. al.](http://arxiv.org/pdf/1506.03134v1.pdf). You may want to take a look at the architecture through `get_model.py` and their backend implementation of [attention layer](https://github.com/wolet/keras/blob/master/keras/layers/attention.py).
+Most of above are trivial. `--model` is to choose among s2s models. `enc2dec` is very similar to [Cho et. al.](http://arxiv.org/pdf/1409.1259.pdf). `attention` is for [Bahdanau et. al.](http://arxiv.org/pdf/1409.0473.pdf), and `pointer` is for [Vinyals et. al.](http://arxiv.org/pdf/1506.03134v1.pdf). You may want to take a look at the architecture through `get_model.py` and their backend implementation of [attention layer](https://github.com/wolet/keras/blob/master/keras/layers/attention.py).
 
 `--prefix` is for creating a subfolder under `exp/`.
 
