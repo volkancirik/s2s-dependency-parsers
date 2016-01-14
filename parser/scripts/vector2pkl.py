@@ -4,10 +4,10 @@ import gzip
 import cPickle as pickle
 import numpy as np
 usage='''
-Converts embedding file to pickle file
+Converts plain text embedding file to pickle file
 pyton <vector file> <pickle file for output> <skip first line 1|0 > <unk word>
 
-<vector file>     : plaint txt file <word> <vector of numbers>
+<vector file>     : plain txt file <word> <vector of numbers>
 <output file>     : output file name with .pkl extension
 <skip first line> : vector file's first line should be skipped or not
 <unk word>        : vector for unknown words. if exists in vector file it is used. othervise average of word vectors will be set as a vector

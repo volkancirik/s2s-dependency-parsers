@@ -90,7 +90,7 @@ def get_pointer(RNN, HIDDEN_SIZE = 128, LAYERS = 1, DIM = 100, MAXLEN = 100):
 		prev_node = 'd_r'+str(layer+1)
 	model.add_node(TimeDistributedDense(HIDDEN_SIZE), name='recurrent_context', input=prev_node)
 
-	model.add_node(PointerPrediction(prev_dim = HIDDEN_SIZE, att_dim = HIDDEN_SIZE, return_sequences = True, prev_context = False), name='pointer', inputs=['encoder_context','recurrent_context'], merge_mode = 'join_att')
+	model.add_node(PointerPrediction(prev_dim = HIDDEN_SIZE, att_dim = HIDDEN_SIZE, return_sequences = True, prev_context = True), name='pointer', inputs=['encoder_context','recurrent_context'], merge_mode = 'join_att')
 
 	model.add_output(name='output', input='pointer')
 	return model
