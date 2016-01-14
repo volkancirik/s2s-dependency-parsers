@@ -31,7 +31,7 @@ PATIENCE = p.patience
 MODEL = p.model
 PREFIX = 'exp/'+p.prefix + '/'
 os.system('mkdir -p '+PREFIX)
-FOOTPRINT = 'M_' + p.model + '_V' + VECTOR.split('/')[-1].split('.')[0] + '_U' + p.unit + '_H' + str(HIDDEN_SIZE) + '_L' + str(LAYERS) + '.' + TIMESTAMP
+FOOTPRINT = 'M' + p.model + '_V' + VECTOR.split('/')[-1].split('.')[0] + '_U' + p.unit + '_H' + str(HIDDEN_SIZE) + '_L' + str(LAYERS) + '.' + TIMESTAMP
 
 ### get training data
 meta_data, dataset = convertData(TR,VAL,TEST,VECTOR)
